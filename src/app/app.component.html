@@ -1,0 +1,53 @@
+<main class="d-flex justify-content-center align-items-center vh-100 bg-light">
+  <div class="card p-4 calculator" style="width:320px;">
+    <h2 class="text-center mb-3 text-primary">Basic Calculator</h2>
+
+    <form #calcForm="ngForm" (ngSubmit)="evaluate()">
+      <div class="mb-2">
+        <input
+          name="expression"
+          [(ngModel)]="expression"
+          class="form-control input-display"
+          placeholder="Enter expression or use buttons"
+        />
+      </div>
+
+      <div class="d-flex justify-content-end mb-3">
+        <div class="badge bg-secondary fs-4">{{ result }}</div>
+      </div>
+
+      <table class="table table-borderless mb-3">
+        <tbody>
+          <tr>
+            <td><button type="button" class="btn btn-secondary btn-lg w-100" (click)="add('1')">1</button></td>
+            <td><button type="button" class="btn btn-secondary btn-lg w-100" (click)="add('2')">2</button></td>
+            <td><button type="button" class="btn btn-secondary btn-lg w-100" (click)="add('3')">3</button></td>
+            <td><button type="button" class="btn btn-primary btn-lg w-100" (click)="add('*')">*</button></td>
+          </tr>
+          <tr>
+            <td><button type="button" class="btn btn-secondary btn-lg w-100" (click)="add('4')">4</button></td>
+            <td><button type="button" class="btn btn-secondary btn-lg w-100" (click)="add('5')">5</button></td>
+            <td><button type="button" class="btn btn-secondary btn-lg w-100" (click)="add('6')">6</button></td>
+            <td><button type="button" class="btn btn-primary btn-lg w-100" (click)="add('/')">/</button></td>
+          </tr>
+          <tr>
+            <td><button type="button" class="btn btn-secondary btn-lg w-100" (click)="add('7')">7</button></td>
+            <td><button type="button" class="btn btn-secondary btn-lg w-100" (click)="add('8')">8</button></td>
+            <td><button type="button" class="btn btn-secondary btn-lg w-100" (click)="add('9')">9</button></td>
+            <td><button type="button" class="btn btn-primary btn-lg w-100" (click)="add('+')">+</button></td>
+          </tr>
+          <tr>
+            <td><button type="button" class="btn btn-secondary btn-lg w-100" (click)="clear()">AC</button></td>
+            <td><button type="button" class="btn btn-secondary btn-lg w-100" (click)="add('0')">0</button></td>
+            <td><button type="button" class="btn btn-secondary btn-lg w-100" (click)="add('.')">.</button></td>
+            <td><button type="button" class="btn btn-primary btn-lg w-100" (click)="add('-')">-</button></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="d-grid">
+        <button type="button" class="btn btn-warning btn-lg equals-btn" (click)="evaluate()">=</button>
+      </div>
+    </form>
+  </div>
+</main>
